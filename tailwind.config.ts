@@ -13,6 +13,44 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        "roboto": "var(--roboto-font)",
+        "montserrat": "var(--montserrat-font)",
+      },
+      colors: {
+        black: '#000',
+        white: '#fff',
+        primaria:{
+          1: '#1CFF77',
+          2: '#00E75C',
+          3: '#05CB54',
+          4: '#E6F1E6',
+        },
+        neutra: {
+          50: '#F8F9FA',
+          100: '#F1F3F5',
+          200: '#E9ECEF',
+          300: '#DEE2E6',
+          400: '#CED4DA',
+          500: '#ADB5BD',
+          600: '#868E96',
+          700: '#495057',
+          800: '#343A40',
+          900: '#212529',
+        },
+        semantica: {
+          1: '#3F9C35',
+          2: '#4FC343',
+          3: '#6FF462',
+          4: '#E6553F',
+          5: '#FF6851',
+          6: '#FC8674',
+          7: '#EAAB00',
+          8: '#FFBB01',
+          9: '#FBCF57',
+        },
+        footer: '#2D374B'
+      }
     },
   },
   plugins: [],

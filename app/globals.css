@@ -18,10 +18,18 @@
 
 body {
   color: rgba(var(--foreground-rgb));
+  font-family: var(--roboto-font);
   background: linear-gradient(
       to bottom,
       transparent,
       rgba(var(--background-end-rgb))
     )
     rgba(var(--background-start-rgb));
+    -webkit-tap-highlight-color: transparent;
+}
+
+main {
+  padding-top: 68px;
+  position: relative;
+  min-height: 100vh;
 }
