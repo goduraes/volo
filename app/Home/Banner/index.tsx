@@ -1,14 +1,21 @@
-import Button from "../../Shared/Button";
+"use client";
+import { useInView } from "react-intersection-observer";
+import Button from "../../../components/Button";
 import Image from "next/image";
 
-import HomeBanner from '../../../public/home-banner.jpg'
-import Avatar from '../../../public/avatar.jpg'
+import HomeBanner from "../../../public/home-banner.jpg";
+import Avatar from "../../../public/avatar.jpg";
 
 export default function Banner() {
+  const { ref, inView } = useInView({ threshold: 0.3 });
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 py-5 min-h-[calc(100vh_-_64px)]">
-      <div className="flex flex-col justify-center col-span-1">
-        <h2 className="font-montserrat text-neutra-800 leading-[65px] text-[54px]">
+    <div
+      ref={ref}
+      className={`grid grid-cols-1 md:grid-cols-2 gap-5 py-5 min-h-[calc(100vh_-_164px)]`}
+    >
+      <div className={`flex flex-col justify-center col-span-1 transition-all duration-[1s] ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
+        <h2 className="text-neutra-800">
           <span className="text-semantica-1">Turbinando sua empresa</span> com
           as tecnologias de ponta
         </h2>
@@ -24,11 +31,16 @@ export default function Banner() {
         </div>
       </div>
 
-      <div className="flex flex-col justify-center items-center md:items-end relative col-span-1">
+      <div className={`flex flex-col justify-center items-center md:items-end relative col-span-1 transition-all duration-[1.2s] ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
         <Image priority src={HomeBanner} alt="Volo logo" />
 
         <div className="hidden lg:flex items-center h-14 absolute top-[150px] left-10 bg-white shadow-2xl p-1 rounded-[36px]">
-          <Image className="h-12 w-auto rounded-full" priority src={Avatar} alt="Volo logo" />
+          <Image
+            className="h-12 w-auto rounded-full"
+            priority
+            src={Avatar}
+            alt="Volo logo"
+          />
           <div className="flex flex-col px-4">
             <span className="text-neutral-800 text-sm">Barbara</span>
             <span className="text-neutra-600 text-sm">Ótimo trabalho</span>
@@ -36,10 +48,17 @@ export default function Banner() {
         </div>
 
         <div className="hidden lg:flex items-center h-14 absolute bottom-[150px] left-0 bg-[#F39568] shadow-2xl p-1 rounded-[36px]">
-          <Image className="h-12 w-auto rounded-full" priority src={Avatar} alt="Volo logo" />
+          <Image
+            className="h-12 w-auto rounded-full"
+            priority
+            src={Avatar}
+            alt="Volo logo"
+          />
           <div className="flex flex-col px-4">
             <span className="text-neutral-800 text-sm">Barbara</span>
-            <span className="text-neutra-200 text-sm">Equipe de alta qualidade👏</span>
+            <span className="text-neutra-200 text-sm">
+              Equipe de alta qualidade👏
+            </span>
           </div>
         </div>
       </div>

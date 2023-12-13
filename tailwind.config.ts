@@ -20,6 +20,8 @@ const config: Config = {
       colors: {
         black: '#000',
         white: '#fff',
+        footer: '#2D374B',
+        services: 'rgba(155, 203, 151, 0.25)',
         primaria:{
           1: '#1CFF77',
           2: '#00E75C',
@@ -49,7 +51,6 @@ const config: Config = {
           8: '#FFBB01',
           9: '#FBCF57',
         },
-        footer: '#2D374B'
       }
     },
   },

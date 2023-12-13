@@ -1,12 +1,12 @@
 "use client";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Button from "../Button";
 import Image from "next/image";
 import Link from 'next/link'
 
-import Logo from "../../../public/logo-volo.svg";
+import Logo from "../../public/logo-volo.svg";
 
 import { navigation } from './navigation';
 
@@ -16,9 +16,16 @@ function classNames(...classes: any) {
 
 export default function Navbar() {
   let [isShowing, setIsShowing] = useState(false);
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 50);
+    });
+  }, []);
 
   return (
-    <nav className="bg-neutra-50 shadow-lg md:shadow-none fixed w-full z-20">
+    <nav className={`bg-neutra-50 fixed w-full z-20 shadow-lg ${!scroll && 'md:shadow-none'}`}>
       <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-center md:justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
