@@ -3,7 +3,7 @@ import { useInView } from "react-intersection-observer";
 import Button from "../Button";
 import ButtonsSocial from "../ButtonsSocial";
 import Newsletter from "../Newsletter";
-import { navigation } from "../Navbar/navigation";
+import { navigation, NavigationType } from "../Navbar/navigation";
 
 import "./style.css";
 
@@ -31,7 +31,7 @@ export default function Footer() {
             <li className="text-neutra-50 font-roboto font-normal leading-7 py-1">
               Menu
             </li>
-            {navigation.map((item) => (
+            {navigation.map((item: NavigationType) => (
               <li
                 key={item.name}
                 className="text-neutra-500 hover:text-semantica-1 font-roboto font-normal leading-7 py-1"

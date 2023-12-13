@@ -1,0 +1,141 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+"use client";
+import { useInView } from "react-intersection-observer";
+import Image from "next/image";
+import Button from "@/components/Button";
+
+import OurTeamImg from "../../../public/our-team/our-team.jpg";
+import IconCheck from "../../../public/our-team/check.svg";
+import { SetStateAction, useEffect, useState } from "react";
+
+export interface NumbersTeamType {
+  label: string;
+  number: number;
+  setState: Function;
+  state: number;
+  duration: string;
+  durationCounter: number;
+}
+
+export default function OurTeam() {
+  const [refAboutTeam, inViewAboutTeam] = useInView({ threshold: 0.3 });
+  const [refTeamNumbers, inViewTeamNumbers] = useInView({ threshold: 0.5 });
+
+  let [counterYears, setCounterYears] = useState(0);
+  let [counterClients, setCounterClients] = useState(0);
+  let [counterProjects, setCounterProjects] = useState(0);
+
+  const list: string[] = [
+    "Suporte confiá Suporte confiáff.",
+    "Suporte confiá Suporte confiável.",
+    "Suporte confiá Suporte.",
+  ];
+
+  const numbersTeam: NumbersTeamType[] = [
+    {
+      label: "Anos de Mercados",
+      number: 2,
+      setState: (value: number) => setCounterYears(value),
+      state: counterYears,
+      duration: "duration-[1s]",
+      durationCounter: 500
+    },
+    {
+      label: "Clientes satisfeitos",
+      number: 10,
+      setState: (value: number) => setCounterClients(value),
+      state: counterClients,
+      duration: "duration-[1.2s]",
+      durationCounter: 250
+    },
+    {
+      label: "Projetos entregues",
+      number: 20,
+      setState: (value: number) => setCounterProjects(value),
+      state: counterProjects,
+      duration: "duration-[1.4s]",
+      durationCounter: 125
+    },
+  ];
+
+  useEffect(() => {
+    if(inViewTeamNumbers) numbersTeam.forEach((item) => increment(item.state, item.number, item.durationCounter, (value: SetStateAction<number>) => item.setState(value)));
+    else numbersTeam.forEach((item) => item.setState(0));
+  }, [inViewTeamNumbers]);
+
+  const increment = (i: number, max: number, time: number, setCounter: (value: SetStateAction<number>) => void) => {
+    if(i >= max) return;
+    setTimeout(() => {
+      setCounter(i+1);
+      increment(i+1, max, time, setCounter);
+    }, time);
+  }
+
+  return (
+    <div className="flex flex-col justify-center items-center min-h-screen">
+      <div
+        ref={refAboutTeam}
+        className="flex flex-col justify-center items-center"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-7xl py-10 px-2">
+          <div
+            className={`col-span-1 transition-all duration-[1s] ${
+              inViewAboutTeam ? "animation-show-left" : "animation-hidden-left"
+            }`}
+          >
+            <Image
+              className="w-auto h-auto"
+              priority
+              src={OurTeamImg}
+              alt="Homem trabalhando no notebook"
+            />
+          </div>
+
+          <div
+            className={`col-span-1 transition-all duration-[1.2s] ${
+              inViewAboutTeam ? "animation-show-left" : "animation-hidden-left"
+            }`}
+          >
+            <h2 className="text-neutra-700 mb-4">
+              Por que escolher nossa equipe?
+            </h2>
+            <p className="text-neutra-600 mb-5">
+              Suporte confiável, economia de custos e tranquilidade para o seu
+              negócio. Deixe-nos cuidar da tecnologia para você!
+            </p>
+            <ul className="mb-4">
+              {list.map((item: string) => (
+                <li key={item} className="flex gap-2 mt-2">
+                  <Image
+                    className="w-5 h-5 mt-0.5"
+                    priority
+                    src={IconCheck}
+                    alt="Ícone check"
+                  />
+                  <span className="text-neutra-600">{item}</span>
+                </li>
+              ))}
+            </ul>
+            <Button>Solicitar orçamento</Button>
+          </div>
+        </div>
+      </div>
+
+      <div ref={refTeamNumbers} className="w-full mx-auto max-w-7xl px-2 my-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-2 py-10 rounded-lg bg-services">
+          {numbersTeam.map((item: NumbersTeamType) => (
+            <div
+              key={item.duration}
+              className={`flex flex-col justify-center items-center col-span-1 transition-all
+              ${ item.duration}
+              ${ inViewTeamNumbers ? "animation-show-left": "animation-hidden-left"}`}
+            >
+              <h2 className="text-neutra-800">{item.state}+</h2>
+              <h5 className="text-neutra-700">{item.label}</h5>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

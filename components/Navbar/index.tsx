@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 import Logo from "../../public/logo-volo.svg";
 
-import { navigation } from './navigation';
+import { NavigationType, navigation } from './navigation';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -55,7 +55,7 @@ export default function Navbar() {
           <div className="hidden md:flex flex-1 items-center justify-center md:items-stretch md:justify-center">
             <div className="md:ml-6 md:block">
               <div className="flex justify-center space-x-8">
-                {navigation.map((item) => (
+                {navigation.map((item: NavigationType) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -91,7 +91,7 @@ export default function Navbar() {
       >
         <div className="md:hidden h-[calc(100vh_-_64px)] relative">
           <div className="space-y-1 px-2 pb-3 pt-2">
-            {navigation.map((item) => (
+            {navigation.map((item: NavigationType) => (
               <a
                 key={item.name}
                 href={item.href}
