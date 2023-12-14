@@ -1,8 +1,8 @@
 "use client";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
-import Outsourcing from '../../../public/services-offered-icons/outsourcing.svg'
-import Suporte from '../../../public/services-offered-icons/suporte.svg'
+import Outsourcing from '@/public/services-offered-icons/outsourcing.svg'
+import Suporte from '@/public/services-offered-icons/suporte.svg'
 export interface CardsType {
   icone: any;
   title: string;

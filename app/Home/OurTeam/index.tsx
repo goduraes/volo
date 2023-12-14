@@ -3,8 +3,8 @@ import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import Button from "@/components/Button";
 
-import OurTeamImg from "../../../public/our-team/our-team.jpg";
-import IconCheck from "../../../public/our-team/check.svg";
+import OurTeamImg from "@/public/our-team/our-team.jpg";
+import IconCheck from "@/public/our-team/check.svg";
 import { SetStateAction, useEffect, useState } from "react";
 
 export interface NumbersTeamType {

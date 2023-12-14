@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Roboto, Montserrat } from 'next/font/google'
-import { MenuProvider } from '../contexts/MenuContext';
+import { MenuProvider } from '@/contexts/MenuContext';
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 

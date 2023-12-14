@@ -5,9 +5,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Button from "../Button";
 import Image from "next/image";
 import Link from 'next/link'
-import Logo from "../../public/logo-volo.svg";
+import Logo from "@/public/logo-volo.svg";
 import { NavigationType, navigation } from './navigation';
-import { MenuContext } from '../../contexts/MenuContext';
+import { MenuContext } from '@/contexts/MenuContext';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");

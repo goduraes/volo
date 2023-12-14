@@ -1,16 +1,16 @@
 "use client";
 import { useInView } from "react-intersection-observer";
-import Button from "../../../components/Button";
+import Button from "@/components/Button";
 import Image from "next/image";
 
-import HomeBanner from "../../../public/home-banner.jpg";
-import Avatar from "../../../public/avatar.jpg";
+import HomeBanner from "@/public/home-banner.jpg";
+import Avatar from "@/public/avatar.jpg";
 
-import Microsoft from "../../../public/companies/microsoft.svg";
-import Microsoft2 from "../../../public/companies/microsoft-2.svg";
-import Github from "../../../public/companies/github.svg";
-import Linkedin from "../../../public/companies/linkedin.svg";
-import Google from "../../../public/companies/google.svg";
+import Microsoft from "@/public/companies/microsoft.svg";
+import Microsoft2 from "@/public/companies/microsoft-2.svg";
+import Github from "@/public/companies/github.svg";
+import Linkedin from "@/public/companies/linkedin.svg";
+import Google from "@/public/companies/google.svg";
 export interface CompaniesType {
   name: string;
   alt: string;
