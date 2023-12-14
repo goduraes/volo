@@ -1,0 +1,11 @@
+.animation-hidden-left {
+  opacity: 0;
+  filter: blur(2px);
+  transform: translateX(-10%);
+}
+
+.animation-show-left {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}

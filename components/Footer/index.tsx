@@ -3,6 +3,7 @@ import { useInView } from "react-intersection-observer";
 import Button from "../Button";
 import ButtonsSocial from "../ButtonsSocial";
 import Newsletter from "../Newsletter";
+import AnimationDiv from "@/components/AnimationDiv";
 import { navigation, NavigationType } from "../Navbar/navigation";
 
 import "./style.css";
@@ -16,7 +17,7 @@ export default function Footer() {
       className="footer flex justify-center items-center bg-footer text-neutra-200"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mx-auto max-w-7xl px-2 py-4 sm:px-6 lg:px-8">
-        <div className={`col-span-1 md:col-span-2 transition-all duration-[1s] ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
+        <AnimationDiv inView={inView} duration="1s" className="col-span-1 md:col-span-2">
           <h3 className="font-medium text-neutra-50 font-montserrat leading-10 text-4xl pb-4">
             Quer receber nossas novidades?
           </h3>
@@ -24,9 +25,9 @@ export default function Footer() {
             Enviaremos um e-mail por semana, sem spam.
           </span>
           <Newsletter />
-        </div>
+        </AnimationDiv>
 
-        <div className={`col-span-1 transition-all duration-[1.2s] ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
+        <AnimationDiv inView={inView} duration="1.2s" className="col-span-1">
           <ul>
             <li className="text-neutra-50 font-roboto font-normal leading-7 py-1">
               Menu
@@ -40,21 +41,21 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-        </div>
+        </AnimationDiv>
 
-        <div className={`col-span-1 transition-all duration-[1.4s] ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
+        <AnimationDiv inView={inView} duration="1.4s" className="col-span-1">
           <span className="text-neutra-50 font-roboto font-normal leading-7	 py-1">
             Endereço
           </span>
           <p className="text-neutra-500 font-roboto font-normal leading-7	 py-1">
             Rua Espirito Santo, Setor 05, Ariquemes- RO
           </p>
-        </div>
+        </AnimationDiv>
 
-        <div className={`flex flex-col items-center md:items-center lg:items-start col-span-1 md:col-span-2 lg:col-span-1 transition-all duration-[1.6s] ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
+        <AnimationDiv inView={inView} duration="1.6s" className="flex flex-col items-center md:items-center lg:items-start col-span-1 md:col-span-2 lg:col-span-1">
           <Button className="w-full lg:w-auto mb-6">Solicitar orçamento</Button>
           <ButtonsSocial />
-        </div>
+        </AnimationDiv>
       </div>
     </footer>
   );

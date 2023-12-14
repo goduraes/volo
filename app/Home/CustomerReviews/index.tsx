@@ -3,10 +3,9 @@ import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import Button from "@/components/Button";
 import Carousel from "react-multi-carousel";
+import AnimationDiv from "@/components/AnimationDiv";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
-
 import "react-multi-carousel/lib/styles.css";
-
 import CustomerReviewsImg from "@/public/customer-reviews.jpg";
 import Avatar from "@/public/avatar.jpg";
 
@@ -107,85 +106,71 @@ export default function CustomerReviews() {
   return (
     <div className="flex flex-col items-center justify-center bg-services">
       <div ref={refCarousel} className="w-full mx-auto max-w-7xl py-20 px-2">
-        <h3
-          className={`font-medium mb-4 transition-all duration-[1s] ${
-            inViewCarousel ? "animation-show-left" : "animation-hidden-left"
-          }`}
-        >
-          Comentários dos <br /> nossos clientes
-        </h3>
-        <Carousel
-          customButtonGroup={<ActionsBtns />}
-          arrows={false}
-          centerMode={false}
-          className="relative pt-12"
-          containerClass="container overflow-hidden mx-auto"
-          sliderClass="flex"
-          minimumTouchDrag={80}
-          draggable
-          partialVisible
-          responsive={{
-            desktop: {
-              breakpoint: { max: 3000, min: 1290 },
-              items: 3,
-              slidesToSlide: 1,
-              partialVisibilityGutter: 70,
-            },
-            tablet: {
-              breakpoint: { max: 1290, min: 768 },
-              items: 2,
-              slidesToSlide: 1,
-              partialVisibilityGutter: 40,
-            },
-            mobile: {
-              breakpoint: { max: 767, min: 0 },
-              items: 1,
-              slidesToSlide: 1,
-              partialVisibilityGutter: 40,
-            },
-          }}
-          slidesToSlide={1}
-        >
-          {reviewCards.map((item: ReviewCardType, i: number) => (
-            <div
-              key={item.name + item.title}
-              className={`flex mx-2 flex-col justify-between min-w-[300px] h-[350px] bg-white shadow-lg rounded-lg p-6
-                transition-all duration-[1.${i * 2}s] ${inViewCarousel ? "animation-show-left" : "animation-hidden-left"}`}
-            >
-              <h5 className="py-2 font-medium text-neutra-700">{item.title}</h5>
-              <p className="py-2 text-neutra-600">{item.text}</p>
+        <AnimationDiv duration="1s" inView={inViewCarousel}>
+          <h3 className="font-medium mb-4">
+            Comentários dos <br /> nossos clientes
+          </h3>
+        </AnimationDiv>
 
-              <div className="flex items-center gap-5">
-                <Image
-                  className="w-14 h-14 rounded-full shadow-lg"
-                  priority
-                  src={item.avatar}
-                  alt={`Avatar de ${item.name}`}
-                />
-                <div className="flex flex-col">
-                  <span className="font-montserrat font-medium text-2xl text-neutra-700">
-                    {item.name}
-                  </span>
-                  <span className="font-montserrat text-xl text-neutra-500">
-                    {item.date}
-                  </span>
+        <AnimationDiv duration="1s" inView={inViewCarousel}>
+          <Carousel
+            customButtonGroup={<ActionsBtns />}
+            arrows={false}
+            centerMode={false}
+            className="relative pt-12"
+            containerClass="container overflow-hidden mx-auto"
+            sliderClass="flex"
+            minimumTouchDrag={80}
+            draggable
+            partialVisible
+            responsive={{
+              desktop: {
+                breakpoint: { max: 3000, min: 1290 },
+                items: 3,
+                slidesToSlide: 1,
+                partialVisibilityGutter: 70,
+              },
+              tablet: {
+                breakpoint: { max: 1290, min: 768 },
+                items: 2,
+                slidesToSlide: 1,
+                partialVisibilityGutter: 40,
+              },
+              mobile: {
+                breakpoint: { max: 767, min: 0 },
+                items: 1,
+                slidesToSlide: 1,
+                partialVisibilityGutter: 40,
+              },
+            }}
+            slidesToSlide={1}
+          >
+            {reviewCards.map((item: ReviewCardType, i: number) => (
+              <AnimationDiv key={item.name + item.title} duration="1.2s" inView={inViewCarousel} className="carousel-card flex mx-2 flex-col justify-between min-w-[300px] h-[350px] bg-white shadow-lg rounded-lg p-6">
+                <h5 className="py-2 font-medium text-neutra-700">{item.title}</h5>
+                <p className="py-2 text-neutra-600">{item.text}</p>
+
+                <div className="flex items-center gap-5">
+                  <Image
+                    className="w-14 h-14 rounded-full shadow-lg"
+                    priority
+                    src={item.avatar}
+                    alt={`Avatar de ${item.name}`}
+                  />
+                  <footer  className="flex flex-col author-info">
+                    <span className="font-montserrat font-medium text-2xl text-neutra-700">{item.name}</span>
+                    <p className="font-montserrat text-xl text-neutra-500">{item.date}</p>
+                  </footer>
                 </div>
-              </div>
-            </div>
-          ))}
-        </Carousel>
+              </AnimationDiv>
+            ))}
+          </Carousel>
+        </AnimationDiv>
       </div>
 
-      <div
-        ref={refContact}
-        className="flex flex-col justify-center items-center"
-      >
+      <div ref={refContact} className="flex flex-col justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-7xl pb-20 px-2">
-          <div
-            className={`col-span-1 transition-all duration-[1.2s] ${
-              inViewContact ? "animation-show-left" : "animation-hidden-left"
-            }`}
-          >
+          <AnimationDiv duration="1s" inView={inViewContact} className="col-span-1">
             <h2 className="font-medium text-neutra-700 mb-4">
               Quer conhecer mais
             </h2>
@@ -196,20 +181,16 @@ export default function CustomerReviews() {
               um prazer atendê-lo(a)!
             </p>
             <Button>Entrar em contato</Button>
-          </div>
+          </AnimationDiv>
 
-          <div
-            className={`flex justify-end col-span-1 transition-all duration-[1s] ${
-              inViewContact ? "animation-show-left" : "animation-hidden-left"
-            }`}
-          >
+          <AnimationDiv duration="1.2s" inView={inViewContact} className="flex justify-end col-span-1">
             <Image
               className="w-full h-auto"
               priority
               src={CustomerReviewsImg}
               alt="Homem trabalhando no notebook"
             />
-          </div>
+          </AnimationDiv>
         </div>
       </div>
     </div>

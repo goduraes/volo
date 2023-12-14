@@ -2,7 +2,7 @@
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import Button from "@/components/Button";
-
+import AnimationDiv from "@/components/AnimationDiv";
 import OurTeamImg from "@/public/our-team/our-team.jpg";
 import IconCheck from "@/public/our-team/check.svg";
 import { SetStateAction, useEffect, useState } from "react";
@@ -42,7 +42,7 @@ export default function OurTeam() {
       number: 2,
       setState: (value: number) => setCounterYears(value),
       state: counterYears,
-      duration: "duration-[1s]",
+      duration: "1s",
       durationCounter: 500
     },
     {
@@ -50,7 +50,7 @@ export default function OurTeam() {
       number: 10,
       setState: (value: number) => setCounterClients(value),
       state: counterClients,
-      duration: "duration-[1.2s]",
+      duration: "1.2s",
       durationCounter: 250
     },
     {
@@ -58,7 +58,7 @@ export default function OurTeam() {
       number: 20,
       setState: (value: number) => setCounterProjects(value),
       state: counterProjects,
-      duration: "duration-[1.4s]",
+      duration: "1.4s",
       durationCounter: 125
     },
   ];
@@ -73,29 +73,18 @@ export default function OurTeam() {
 
   return (
     <div id="sobre" className="flex flex-col justify-center items-center md:scroll-mt-16">
-      <div
-        ref={refAboutTeam}
-        className="flex flex-col justify-center items-center"
-      >
+      <div ref={refAboutTeam} className="flex flex-col justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-7xl py-20 px-2">
-          <div
-            className={`col-span-1 transition-all duration-[1s] ${
-              inViewAboutTeam ? "animation-show-left" : "animation-hidden-left"
-            }`}
-          >
+          <AnimationDiv duration="1s" inView={inViewAboutTeam} className="col-span-1">
             <Image
               className="w-full h-auto"
               priority
               src={OurTeamImg}
               alt="Homem trabalhando no notebook"
             />
-          </div>
+          </AnimationDiv>
 
-          <div
-            className={`col-span-1 transition-all duration-[1.2s] ${
-              inViewAboutTeam ? "animation-show-left" : "animation-hidden-left"
-            }`}
-          >
+          <AnimationDiv duration="1.2s" inView={inViewAboutTeam} className="col-span-1">
             <h2 className="font-medium text-neutra-700 mb-4">
               Por que escolher nossa equipe?
             </h2>
@@ -117,22 +106,19 @@ export default function OurTeam() {
               ))}
             </ul>
             <Button>Solicitar orçamento</Button>
-          </div>
+          </AnimationDiv>
         </div>
       </div>
 
       <div ref={refTeamNumbers} className="w-full mx-auto max-w-7xl px-2 mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-2 py-10 rounded-lg bg-services">
           {numbersTeam.map((item: NumbersTeamType) => (
-            <div
-              key={item.duration}
-              className={`flex flex-col justify-center items-center col-span-1 transition-all
-              ${ item.duration}
-              ${ inViewTeamNumbers ? "animation-show-left": "animation-hidden-left"}`}
-            >
-              <h2 className="font-medium text-neutra-800">{item.state}+</h2>
-              <h5 className="font-medium text-neutra-700">{item.label}</h5>
-            </div>
+            <AnimationDiv key={item.duration} duration={item.duration} inView={inViewTeamNumbers} className="flex flex-col justify-center items-center col-span-1">
+              <figure className="flex flex-col items-center stat-indicator" aria-labelledby="stat-value">
+                <h2 className="font-medium text-neutra-800">{item.state}+</h2>
+                <p className="stat-label font-montserrat font-medium text-xl text-neutra-700">{item.label}</p>
+              </figure>
+            </AnimationDiv>
           ))}
         </div>
       </div>

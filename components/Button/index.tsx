@@ -7,6 +7,7 @@ export default function Button({ children, secondary, className, ...rest }: Type
   return (
     <button
       {...rest}
+      type="button"
       className={`${
         secondary
           ? "bg-primaria-4 hover:bg-semantica-1 text-semantica-1 hover:text-white"

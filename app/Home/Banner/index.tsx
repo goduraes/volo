@@ -2,7 +2,7 @@
 import { useInView } from "react-intersection-observer";
 import Button from "@/components/Button";
 import Image from "next/image";
-
+import AnimationDiv from "@/components/AnimationDiv";
 import HomeBanner from "@/public/home-banner.jpg";
 import Avatar from "@/public/avatar.jpg";
 
@@ -14,33 +14,26 @@ import Google from "@/public/companies/google.svg";
 export interface CompaniesType {
   name: string;
   alt: string;
-  icone: any;
+  icon: any;
   duration: string;
 }
 
 export default function Banner() {
   const { ref, inView } = useInView({ threshold: 0.3 });
-  const [refCompanies, inViewCompanies] = useInView({ threshold: 0.5 });
+  const [refCompanyList, inViewCompaniesList] = useInView({ threshold: 0.5 });
 
   const companies: CompaniesType[] = [
-    { name: "Microsoft", alt: 'Logo da microsoft', icone: Microsoft, duration: "duration-[1s]" },
-    { name: "Microsoft2", alt: 'Logo da microsoft', icone: Microsoft2, duration: "duration-[1.2s]" },
-    { name: "Github", alt: 'Logo do github', icone: Github, duration: "duration-[1.4s]" },
-    { name: "Linkedin", alt: 'Logo do linkedin', icone: Linkedin, duration: "duration-[1.6s]" },
-    { name: "Google", alt: 'Logo do google', icone: Google, duration: "duration-[1.8s]" },
+    { name: "Microsoft", alt: 'Logo da microsoft', icon: Microsoft, duration: "1s" },
+    { name: "Microsoft2", alt: 'Logo da microsoft', icon: Microsoft2, duration: "1.2s" },
+    { name: "Github", alt: 'Logo do github', icon: Github, duration: "1.4s" },
+    { name: "Linkedin", alt: 'Logo do linkedin', icon: Linkedin, duration: "1.6s" },
+    { name: "Google", alt: 'Logo do google', icon: Google, duration: "1.8s" },
   ];
 
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-      <div
-        ref={ref}
-        className={`grid grid-cols-1 md:grid-cols-2 gap-5 py-5 min-h-[calc(100vh_-_164px)]`}
-      >
-        <div
-          className={`flex flex-col justify-center col-span-1 transition-all duration-[1s] ${
-            inView ? "animation-show-left" : "animation-hidden-left"
-          }`}
-        >
+      <div ref={ref} className={`grid grid-cols-1 md:grid-cols-2 gap-5 py-5 min-h-[calc(100vh_-_164px)]`}>
+        <AnimationDiv duration="1s" inView={inView} className="flex flex-col justify-center col-span-1">
           <h2 className="text-neutra-800">
             <span className="text-semantica-1">Turbinando sua empresa</span> com
             as tecnologias de ponta
@@ -55,65 +48,49 @@ export default function Banner() {
             <Button>Solicitar orçamento</Button>
             <Button secondary>Saiba mais</Button>
           </div>
-        </div>
+        </AnimationDiv>
 
-        <div
-          className={`flex flex-col justify-center items-center md:items-end relative col-span-1 transition-all duration-[1.2s] ${
-            inView ? "animation-show-left" : "animation-hidden-left"
-          }`}
-        >
-          <Image priority src={HomeBanner} alt="Volo logo" />
+        <AnimationDiv duration="1.2s" inView={inView} className="flex flex-col justify-center items-center md:items-end relative col-span-1">
+          <Image priority src={HomeBanner} alt="Pessoas trabalhando no notebook" />
 
-          <div className={`hidden lg:flex items-center h-14 absolute top-[150px] left-10 bg-white shadow-2xl p-1 rounded-[36px] transition-all duration-[1.5s]
-            ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
+          <AnimationDiv duration="1.5s" inView={inView} className="avatar-container hidden lg:flex items-center h-14 absolute top-[150px] left-10 bg-white shadow-2xl p-1 rounded-[36px]">
             <Image
               className="h-12 w-auto rounded-full"
               priority
               src={Avatar}
-              alt="Volo logo"
+              alt="Avatar de usuário"
             />
             <div className="flex flex-col px-4">
               <span className="text-neutral-800 text-sm">Barbara</span>
-              <span className="text-neutra-600 text-sm">Ótimo trabalho</span>
+              <p className="text-neutra-600 text-sm">Ótimo trabalho</p>
             </div>
-          </div>
+          </AnimationDiv>
 
-          <div className={`hidden lg:flex items-center h-14 absolute bottom-[150px] left-0 bg-[#F39568] shadow-2xl p-1 rounded-[36px] transition-all duration-[1.8s]
-            ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
+          <AnimationDiv duration="1.8s" inView={inView} className="avatar-container hidden lg:flex items-center h-14 absolute bottom-[150px] left-0 bg-[#F39568] shadow-2xl p-1 rounded-[36px]">
             <Image
               className="h-12 w-auto rounded-full"
               priority
               src={Avatar}
-              alt="Volo logo"
+              alt="Avatar de usuário"
             />
             <div className="flex flex-col px-4">
               <span className="text-neutral-800 text-sm">Barbara</span>
-              <span className="text-neutra-200 text-sm">
-                Equipe de alta qualidade👏
-              </span>
+              <p className="text-neutra-200 text-sm">Equipe de alta qualidade👏</p>
             </div>
-          </div>
-        </div>
+          </AnimationDiv>
+        </AnimationDiv>
       </div>
 
-      <div
-        ref={refCompanies}
-        className="grid grid-cols-2 md:grid-cols-5 gap-y-2 gap-x-10 md:gap-5 mb-9"
-      >
+      <div ref={refCompanyList} className="grid grid-cols-2 md:grid-cols-5 gap-y-2 gap-x-10 md:gap-5 mb-9">
         {companies.map((item: CompaniesType) => (
-          <div
-            key={item.name}
-            className={`flex justify-center col-span-1 transition-all ${
-              item.duration
-            } ${inViewCompanies ? "animation-show-left" : "animation-hidden-left"}`}
-          >
+          <AnimationDiv key={item.name} duration={item.duration} inView={inViewCompaniesList} className="flex justify-center col-span-1">
             <Image
               className="w-4/6"
               priority
-              src={item.icone}
+              src={item.icon}
               alt={item.alt}
             />
-          </div>
+          </AnimationDiv>
         ))}
       </div>
     </div>
