@@ -121,7 +121,7 @@ export default function OurTeam() {
         </div>
       </div>
 
-      <div ref={refTeamNumbers} className="w-full mx-auto max-w-7xl px-2 my-20">
+      <div ref={refTeamNumbers} className="w-full mx-auto max-w-7xl px-2 mb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-2 py-10 rounded-lg bg-services">
           {numbersTeam.map((item: NumbersTeamType) => (
             <div
