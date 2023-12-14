@@ -62,7 +62,7 @@ export default function ServicesOffered() {
                 src={item.icone}
                 alt={`Ícone do ${item.title}`}
               />
-              <h5 className="text-neutra-800 my-4">{item.title}</h5>
+              <h3 className="text-xl text-neutra-800 my-4">{item.title}</h3>
               <p className="text-neutra-600 service-description">{item.text}</p>
             </AnimationDiv>
           ))}

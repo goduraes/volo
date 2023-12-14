@@ -53,7 +53,7 @@ export default function Footer() {
         </AnimationDiv>
 
         <AnimationDiv inView={inView} duration="duration-[1.6s]" className="flex flex-col items-center md:items-center lg:items-start col-span-1 md:col-span-2 lg:col-span-1">
-          <Button className="w-full lg:w-auto mb-6">Solicitar orçamento</Button>
+          <Button aria-label="Solicitar orçamento" className="w-full lg:w-auto mb-6">Solicitar orçamento</Button>
           <ButtonsSocial />
         </AnimationDiv>
       </div>

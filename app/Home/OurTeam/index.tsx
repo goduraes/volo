@@ -105,7 +105,7 @@ export default function OurTeam() {
                 </li>
               ))}
             </ul>
-            <Button>Solicitar orçamento</Button>
+            <Button aria-label="Solicitar orçamento">Solicitar orçamento</Button>
           </AnimationDiv>
         </div>
       </div>

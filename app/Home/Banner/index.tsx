@@ -45,8 +45,8 @@ export default function Banner() {
           </p>
 
           <div className="btns flex gap-5">
-            <Button>Solicitar orçamento</Button>
-            <Button secondary>Saiba mais</Button>
+            <Button aria-label="Solicitar orçamento">Solicitar orçamento</Button>
+            <Button aria-label="Saiba mais" secondary>Saiba mais</Button>
           </div>
         </AnimationDiv>
 

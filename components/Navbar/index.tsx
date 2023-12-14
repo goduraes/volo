@@ -76,7 +76,7 @@ export default function Navbar() {
               </div>
             </div>
             <div className="hidden md:flex absolute inset-y-0 right-0 items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
-              <Button>Contato</Button>
+              <Button aria-label="Contato">Contato</Button>
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function Navbar() {
               ))}
             </div>
             <div className="absolute bottom-0 space-y-1 px-2 pb-3 pt-2 w-full">
-              <Button className="w-full">Contato</Button>
+              <Button aria-label="Contato" className="w-full">Contato</Button>
             </div>
           </div>
         </Transition>

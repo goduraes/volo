@@ -147,7 +147,7 @@ export default function CustomerReviews() {
           >
             {reviewCards.map((item: ReviewCardType, i: number) => (
               <AnimationDiv key={item.name + item.title} duration={`duration-[1.${i * 2}s]`} inView={inViewCarousel} className="carousel-card flex mx-2 flex-col justify-between min-w-[300px] h-[350px] bg-white shadow-lg rounded-lg p-6">
-                <h5 className="py-2 font-medium text-neutra-700">{item.title}</h5>
+                <h2 className="text-xl py-2 font-medium text-neutra-700">{item.title}</h2>
                 <p className="py-2 text-neutra-600">{item.text}</p>
 
                 <div className="flex items-center gap-5">
@@ -180,7 +180,7 @@ export default function CustomerReviews() {
               ainda mais incrível. Não hesite em entrar em contato conosco, será
               um prazer atendê-lo(a)!
             </p>
-            <Button>Entrar em contato</Button>
+            <Button aria-label="Entrar em contato">Entrar em contato</Button>
           </AnimationDiv>
 
           <AnimationDiv duration="duration-[1.2s]" inView={inViewContact} className="flex justify-end col-span-1">
