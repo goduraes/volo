@@ -7,8 +7,8 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
 import "react-multi-carousel/lib/styles.css";
 
-import CustomerReviewsImg from ".@/public/customer-reviews.jpg";
-import Avatar from ".@/public/avatar.jpg";
+import CustomerReviewsImg from "@/public/customer-reviews.jpg";
+import Avatar from "@/public/avatar.jpg";
 
 export interface ReviewCardType {
   title: string;
