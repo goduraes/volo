@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Roboto, Montserrat } from 'next/font/google'
-
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import { MenuProvider } from '../contexts/MenuContext';
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 import './globals.css'
 
@@ -23,15 +23,15 @@ export const metadata: Metadata = {
   description: 'Turbinando sua empresa com as tecnologias de ponta',
 }
 
-export default function RootLayout({ children, }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
       <body className={`${roboto.variable} ${montserrat.variable}`}>
-        <Navbar />
-        <main>
-          {children}
-        </main>
-        <Footer />
+        <MenuProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </MenuProvider>
       </body>
     </html>
   )

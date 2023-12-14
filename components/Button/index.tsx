@@ -1,13 +1,12 @@
-export default function Button(props: {
-  children: string;
+import { ButtonHTMLAttributes } from "react";
+export interface TypeButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   secondary?: boolean;
-  className?: string;
-}) {
-  const { children, secondary, className } = props;
-  
+}
+
+export default function Button({ children, secondary, className, ...rest }: TypeButton) {
   return (
     <button
-      type="button"
+      {...rest}
       className={`${
         secondary
           ? "bg-primaria-4 hover:bg-semantica-1 text-semantica-1 hover:text-white"

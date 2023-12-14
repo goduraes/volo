@@ -64,7 +64,8 @@ export default function Banner() {
         >
           <Image priority src={HomeBanner} alt="Volo logo" />
 
-          <div className="hidden lg:flex items-center h-14 absolute top-[150px] left-10 bg-white shadow-2xl p-1 rounded-[36px]">
+          <div className={`hidden lg:flex items-center h-14 absolute top-[150px] left-10 bg-white shadow-2xl p-1 rounded-[36px] transition-all duration-[1.5s]
+            ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
             <Image
               className="h-12 w-auto rounded-full"
               priority
@@ -77,7 +78,8 @@ export default function Banner() {
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center h-14 absolute bottom-[150px] left-0 bg-[#F39568] shadow-2xl p-1 rounded-[36px]">
+          <div className={`hidden lg:flex items-center h-14 absolute bottom-[150px] left-0 bg-[#F39568] shadow-2xl p-1 rounded-[36px] transition-all duration-[1.8s]
+            ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
             <Image
               className="h-12 w-auto rounded-full"
               priority

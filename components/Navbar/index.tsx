@@ -1,14 +1,13 @@
 "use client";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Button from "../Button";
 import Image from "next/image";
 import Link from 'next/link'
-
 import Logo from "../../public/logo-volo.svg";
-
 import { NavigationType, navigation } from './navigation';
+import { MenuContext } from '../../contexts/MenuContext';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -17,6 +16,7 @@ function classNames(...classes: any) {
 export default function Navbar() {
   let [isShowing, setIsShowing] = useState(false);
   const [scroll, setScroll] = useState(false);
+  const { menuActive } = useContext(MenuContext);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -56,19 +56,18 @@ export default function Navbar() {
             <div className="md:ml-6 md:block">
               <div className="flex justify-center space-x-8">
                 {navigation.map((item: NavigationType) => (
-                  <a
+                  <Link
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      item.current
+                      item.name === menuActive
                         ? "border-b-2 border-semantica-1 text-semantica-1"
                         : "text-neutra-700 hover:text-neutra-900",
                       "py-0.5 font-roboto font-normal leading-5"
                     )}
-                    aria-current={item.current ? "page" : undefined}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -92,19 +91,19 @@ export default function Navbar() {
         <div className="md:hidden h-[calc(100vh_-_64px)] relative">
           <div className="space-y-1 px-2 pb-3 pt-2">
             {navigation.map((item: NavigationType) => (
-              <a
+              <Link
+                onClick={() => setIsShowing(false)}
                 key={item.name}
                 href={item.href}
                 className={classNames(
-                  item.current
+                  item.name === menuActive
                     ? "border-b-2 border-semantica-1 text-semantica-1"
                     : "text-neutra-700 hover:text-neutra-900",
                   "block px-3 py-2 font-roboto font-normal leading-10"
                 )}
-                aria-current={item.current ? "page" : undefined}
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="absolute bottom-0 space-y-1 px-2 pb-3 pt-2 w-full">

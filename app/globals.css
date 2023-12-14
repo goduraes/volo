@@ -16,6 +16,11 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-behavior: cubic-bezier(0.42, 0, 0.58, 1);
+}
+
 body {
   color: rgba(var(--foreground-rgb));
   font-family: var(--roboto-font);
@@ -63,6 +68,11 @@ h6 {
   line-height: 27px;
 }
 
+::selection {
+  color: #F8F9FA;
+  background-color: #4FC343;
+}
+
 input::placeholder {
   color: #ADB5BD;
 }
@@ -70,8 +80,8 @@ input::placeholder {
 /* animations */
 .animation-hidden-left {
   opacity: 0;
-  filter: blur(15px);
-  transform: translateX(-100%);
+  filter: blur(2px);
+  transform: translateX(-10%);
 }
 
 .animation-show-left {

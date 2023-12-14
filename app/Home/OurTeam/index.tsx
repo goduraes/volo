@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
@@ -24,6 +23,12 @@ export default function OurTeam() {
   let [counterYears, setCounterYears] = useState(0);
   let [counterClients, setCounterClients] = useState(0);
   let [counterProjects, setCounterProjects] = useState(0);
+
+  useEffect(() => {
+    if(inViewTeamNumbers) numbersTeam.forEach((item) => increment(item.state, item.number, item.durationCounter, (value: SetStateAction<number>) => item.setState(value)));
+    else numbersTeam.forEach((item) => item.setState(0));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inViewAboutTeam, inViewTeamNumbers]);
 
   const list: string[] = [
     "Suporte confiá Suporte confiáff.",
@@ -58,11 +63,6 @@ export default function OurTeam() {
     },
   ];
 
-  useEffect(() => {
-    if(inViewTeamNumbers) numbersTeam.forEach((item) => increment(item.state, item.number, item.durationCounter, (value: SetStateAction<number>) => item.setState(value)));
-    else numbersTeam.forEach((item) => item.setState(0));
-  }, [inViewTeamNumbers]);
-
   const increment = (i: number, max: number, time: number, setCounter: (value: SetStateAction<number>) => void) => {
     if(i >= max) return;
     setTimeout(() => {
@@ -72,19 +72,19 @@ export default function OurTeam() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen">
+    <div id="sobre" className="flex flex-col justify-center items-center md:scroll-mt-16">
       <div
         ref={refAboutTeam}
         className="flex flex-col justify-center items-center"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-7xl py-10 px-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-7xl py-20 px-2">
           <div
             className={`col-span-1 transition-all duration-[1s] ${
               inViewAboutTeam ? "animation-show-left" : "animation-hidden-left"
             }`}
           >
             <Image
-              className="w-auto h-auto"
+              className="w-full h-auto"
               priority
               src={OurTeamImg}
               alt="Homem trabalhando no notebook"
@@ -96,7 +96,7 @@ export default function OurTeam() {
               inViewAboutTeam ? "animation-show-left" : "animation-hidden-left"
             }`}
           >
-            <h2 className="text-neutra-700 mb-4">
+            <h2 className="font-medium text-neutra-700 mb-4">
               Por que escolher nossa equipe?
             </h2>
             <p className="text-neutra-600 mb-5">
@@ -121,7 +121,7 @@ export default function OurTeam() {
         </div>
       </div>
 
-      <div ref={refTeamNumbers} className="w-full mx-auto max-w-7xl px-2 my-10">
+      <div ref={refTeamNumbers} className="w-full mx-auto max-w-7xl px-2 my-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-2 py-10 rounded-lg bg-services">
           {numbersTeam.map((item: NumbersTeamType) => (
             <div
@@ -130,8 +130,8 @@ export default function OurTeam() {
               ${ item.duration}
               ${ inViewTeamNumbers ? "animation-show-left": "animation-hidden-left"}`}
             >
-              <h2 className="text-neutra-800">{item.state}+</h2>
-              <h5 className="text-neutra-700">{item.label}</h5>
+              <h2 className="font-medium text-neutra-800">{item.state}+</h2>
+              <h5 className="font-medium text-neutra-700">{item.label}</h5>
             </div>
           ))}
         </div>

@@ -1,7 +1,6 @@
 "use client";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
-
 import Outsourcing from '../../../public/services-offered-icons/outsourcing.svg'
 import Suporte from '../../../public/services-offered-icons/suporte.svg'
 export interface CardsType {
@@ -48,9 +47,9 @@ export default function ServicesOffered() {
   ];
 
   return (
-    <div ref={ref} className="flex justify-center items-center min-h-[65vh] bg-services">
+    <div ref={ref} id="services" className="flex justify-center items-center md:scroll-mt-16 bg-services">
       <div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10 mx-auto max-w-7xl py-10 px-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10 mx-auto max-w-7xl py-20 px-2">
           <div className={`col-span-1 transition-all duration-[1s] ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
             <h2>Serviços oferecidos</h2>
           </div>

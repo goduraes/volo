@@ -17,7 +17,7 @@ export default function Footer() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mx-auto max-w-7xl px-2 py-4 sm:px-6 lg:px-8">
         <div className={`col-span-1 md:col-span-2 transition-all duration-[1s] ${inView ? "animation-show-left" : "animation-hidden-left"}`}>
-          <h3 className="text-neutra-50 font-roboto font-normal leading-10 text-4xl pb-4">
+          <h3 className="font-medium text-neutra-50 font-montserrat leading-10 text-4xl pb-4">
             Quer receber nossas novidades?
           </h3>
           <span className="block text-neutra-500 font-roboto font-normal leading-7 pb-4">
