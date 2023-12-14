@@ -180,7 +180,7 @@ export default function CustomerReviews() {
         ref={refContact}
         className="flex flex-col justify-center items-center"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-7xl py-20 px-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-7xl pb-20 px-2">
           <div
             className={`col-span-1 transition-all duration-[1.2s] ${
               inViewContact ? "animation-show-left" : "animation-hidden-left"
