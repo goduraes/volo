@@ -75,10 +75,17 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+      - name: Create Artifact Folder
+        run: New-Item -Path '${{ github.workspace }}' -Name "Artifacts" -ItemType "directory"
+        shell: powershell
+      - name: Copy Scripts
+        run: Copy 'Scripts/' '${{ github.workspace }}/Artifacts/Scripts'
+        shell: powershell
+      - name: Publish Artifact
+        uses: actions/upload-artifact@v2
         with:
-          path: ./out
+          path: ${{ github.workspace }}/Artifacts
+          name: ${{ github.run_number }}
 
   # Deployment job
   deploy:
