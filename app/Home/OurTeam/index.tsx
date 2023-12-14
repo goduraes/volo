@@ -42,7 +42,7 @@ export default function OurTeam() {
       number: 2,
       setState: (value: number) => setCounterYears(value),
       state: counterYears,
-      duration: "1s",
+      duration: "duration-[1s]",
       durationCounter: 500
     },
     {
@@ -50,7 +50,7 @@ export default function OurTeam() {
       number: 10,
       setState: (value: number) => setCounterClients(value),
       state: counterClients,
-      duration: "1.2s",
+      duration: "duration-[1.2s]",
       durationCounter: 250
     },
     {
@@ -58,7 +58,7 @@ export default function OurTeam() {
       number: 20,
       setState: (value: number) => setCounterProjects(value),
       state: counterProjects,
-      duration: "1.4s",
+      duration: "duration-[1.4s]",
       durationCounter: 125
     },
   ];
@@ -75,7 +75,7 @@ export default function OurTeam() {
     <div id="sobre" className="flex flex-col justify-center items-center md:scroll-mt-16">
       <div ref={refAboutTeam} className="flex flex-col justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-7xl py-20 px-2">
-          <AnimationDiv duration="1s" inView={inViewAboutTeam} className="col-span-1">
+          <AnimationDiv duration="duration-[1s]" inView={inViewAboutTeam} className="col-span-1">
             <Image
               className="w-full h-auto"
               priority
@@ -84,7 +84,7 @@ export default function OurTeam() {
             />
           </AnimationDiv>
 
-          <AnimationDiv duration="1.2s" inView={inViewAboutTeam} className="col-span-1">
+          <AnimationDiv duration="duration-[1.2s]" inView={inViewAboutTeam} className="col-span-1">
             <h2 className="font-medium text-neutra-700 mb-4">
               Por que escolher nossa equipe?
             </h2>

@@ -17,7 +17,7 @@ export default function Footer() {
       className="footer flex justify-center items-center bg-footer text-neutra-200"
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mx-auto max-w-7xl px-2 py-4 sm:px-6 lg:px-8">
-        <AnimationDiv inView={inView} duration="1s" className="col-span-1 md:col-span-2">
+        <AnimationDiv inView={inView} duration="duration-[1s]" className="col-span-1 md:col-span-2">
           <h3 className="font-medium text-neutra-50 font-montserrat leading-10 text-4xl pb-4">
             Quer receber nossas novidades?
           </h3>
@@ -27,7 +27,7 @@ export default function Footer() {
           <Newsletter />
         </AnimationDiv>
 
-        <AnimationDiv inView={inView} duration="1.2s" className="col-span-1">
+        <AnimationDiv inView={inView} duration="duration-[1.2s]" className="col-span-1">
           <ul>
             <li className="text-neutra-50 font-roboto font-normal leading-7 py-1">
               Menu
@@ -43,7 +43,7 @@ export default function Footer() {
           </ul>
         </AnimationDiv>
 
-        <AnimationDiv inView={inView} duration="1.4s" className="col-span-1">
+        <AnimationDiv inView={inView} duration="duration-[1.4s]" className="col-span-1">
           <span className="text-neutra-50 font-roboto font-normal leading-7	 py-1">
             Endereço
           </span>
@@ -52,7 +52,7 @@ export default function Footer() {
           </p>
         </AnimationDiv>
 
-        <AnimationDiv inView={inView} duration="1.6s" className="flex flex-col items-center md:items-center lg:items-start col-span-1 md:col-span-2 lg:col-span-1">
+        <AnimationDiv inView={inView} duration="duration-[1.6s]" className="flex flex-col items-center md:items-center lg:items-start col-span-1 md:col-span-2 lg:col-span-1">
           <Button className="w-full lg:w-auto mb-6">Solicitar orçamento</Button>
           <ButtonsSocial />
         </AnimationDiv>

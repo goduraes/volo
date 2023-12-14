@@ -19,31 +19,31 @@ export default function ServicesOffered() {
       icone: Suporte,
       title: "Suporte",
       text: "Suporte confiável, economia de custos e tranquilidade para o seu negócio. Deixe-nos cuidar da tecnologia para você!",
-      duration: '1.2s'
+      duration: 'duration-[1.2s]'
     },
     {
       icone: Outsourcing,
       title: "Outsourcing de TI",
       text: "Suporte confiável, economia de custos e tranquilidade para o seu negócio. Deixe-nos cuidar da tecnologia para você!",
-      duration: '1.4s'
+      duration: 'duration-[1.4s]'
     },
     {
       icone: Suporte,
       title: "Suporte",
       text: "Suporte confiável, economia de custos e tranquilidade para o seu negócio. Deixe-nos cuidar da tecnologia para você!",
-      duration: '1.6s'
+      duration: 'duration-[1.6s]'
     },
     {
       icone: Outsourcing,
       title: "Outsourcing de TI",
       text: "Suporte confiável, economia de custos e tranquilidade para o seu negócio. Deixe-nos cuidar da tecnologia para você!",
-      duration: '1.8s'
+      duration: 'duration-[1.8s]'
     },
     {
       icone: Suporte,
       title: "Outsourcing de TI",
       text: "Suporte confiável, economia de custos e tranquilidade para o seu negócio. Deixe-nos cuidar da tecnologia para você!",
-      duration: '2s'
+      duration: 'duration-[2s]'
     },
   ];
 
@@ -51,7 +51,7 @@ export default function ServicesOffered() {
     <div ref={ref} id="services" className="flex justify-center items-center md:scroll-mt-16 bg-services">
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10 mx-auto max-w-7xl py-20 px-2">
-          <AnimationDiv duration="1s" inView={inView} className="col-span-1">
+          <AnimationDiv duration="duration-[1s]" inView={inView} className="col-span-1">
             <h2>Serviços oferecidos</h2>
           </AnimationDiv>
           {cards.map((item: CardsType) => (

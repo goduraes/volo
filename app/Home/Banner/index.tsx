@@ -23,17 +23,17 @@ export default function Banner() {
   const [refCompanyList, inViewCompaniesList] = useInView({ threshold: 0.5 });
 
   const companies: CompaniesType[] = [
-    { name: "Microsoft", alt: 'Logo da microsoft', icon: Microsoft, duration: "1s" },
-    { name: "Microsoft2", alt: 'Logo da microsoft', icon: Microsoft2, duration: "1.2s" },
-    { name: "Github", alt: 'Logo do github', icon: Github, duration: "1.4s" },
-    { name: "Linkedin", alt: 'Logo do linkedin', icon: Linkedin, duration: "1.6s" },
-    { name: "Google", alt: 'Logo do google', icon: Google, duration: "1.8s" },
+    { name: "Microsoft", alt: 'Logo da microsoft', icon: Microsoft, duration: "duration-[1s]" },
+    { name: "Microsoft2", alt: 'Logo da microsoft', icon: Microsoft2, duration: "duration-[1.2s]" },
+    { name: "Github", alt: 'Logo do github', icon: Github, duration: "duration-[1.4s]" },
+    { name: "Linkedin", alt: 'Logo do linkedin', icon: Linkedin, duration: "duration-[1.6s]" },
+    { name: "Google", alt: 'Logo do google', icon: Google, duration: "duration-[1.8s]" },
   ];
 
   return (
     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div ref={ref} className={`grid grid-cols-1 md:grid-cols-2 gap-5 py-5 min-h-[calc(100vh_-_164px)]`}>
-        <AnimationDiv duration="1s" inView={inView} className="flex flex-col justify-center col-span-1">
+        <AnimationDiv duration="duration-[1s]" inView={inView} className="flex flex-col justify-center col-span-1">
           <h2 className="text-neutra-800">
             <span className="text-semantica-1">Turbinando sua empresa</span> com
             as tecnologias de ponta
@@ -50,10 +50,10 @@ export default function Banner() {
           </div>
         </AnimationDiv>
 
-        <AnimationDiv duration="1.2s" inView={inView} className="flex flex-col justify-center items-center md:items-end relative col-span-1">
+        <AnimationDiv duration="duration-[1.2s]" inView={inView} className="flex flex-col justify-center items-center md:items-end relative col-span-1">
           <Image priority src={HomeBanner} alt="Pessoas trabalhando no notebook" />
 
-          <AnimationDiv duration="1.5s" inView={inView} className="avatar-container hidden lg:flex items-center h-14 absolute top-[150px] left-10 bg-white shadow-2xl p-1 rounded-[36px]">
+          <AnimationDiv duration="duration-[1.5s]" inView={inView} className="avatar-container hidden lg:flex items-center h-14 absolute top-[150px] left-10 bg-white shadow-2xl p-1 rounded-[36px]">
             <Image
               className="h-12 w-auto rounded-full"
               priority
@@ -66,7 +66,7 @@ export default function Banner() {
             </div>
           </AnimationDiv>
 
-          <AnimationDiv duration="1.8s" inView={inView} className="avatar-container hidden lg:flex items-center h-14 absolute bottom-[150px] left-0 bg-[#F39568] shadow-2xl p-1 rounded-[36px]">
+          <AnimationDiv duration="duration-[1.8s]" inView={inView} className="avatar-container hidden lg:flex items-center h-14 absolute bottom-[150px] left-0 bg-[#F39568] shadow-2xl p-1 rounded-[36px]">
             <Image
               className="h-12 w-auto rounded-full"
               priority

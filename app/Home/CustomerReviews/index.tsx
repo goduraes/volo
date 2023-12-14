@@ -106,13 +106,13 @@ export default function CustomerReviews() {
   return (
     <div className="flex flex-col items-center justify-center bg-services">
       <div ref={refCarousel} className="w-full mx-auto max-w-7xl py-20 px-2">
-        <AnimationDiv duration="1s" inView={inViewCarousel}>
+        <AnimationDiv duration="duration-[1s]" inView={inViewCarousel}>
           <h3 className="font-medium mb-4">
             Comentários dos <br /> nossos clientes
           </h3>
         </AnimationDiv>
 
-        <AnimationDiv duration="1s" inView={inViewCarousel}>
+        <AnimationDiv duration="duration-[1s]" inView={inViewCarousel}>
           <Carousel
             customButtonGroup={<ActionsBtns />}
             arrows={false}
@@ -146,7 +146,7 @@ export default function CustomerReviews() {
             slidesToSlide={1}
           >
             {reviewCards.map((item: ReviewCardType, i: number) => (
-              <AnimationDiv key={item.name + item.title} duration="1.2s" inView={inViewCarousel} className="carousel-card flex mx-2 flex-col justify-between min-w-[300px] h-[350px] bg-white shadow-lg rounded-lg p-6">
+              <AnimationDiv key={item.name + item.title} duration={`duration-[1.${i * 2}s]`} inView={inViewCarousel} className="carousel-card flex mx-2 flex-col justify-between min-w-[300px] h-[350px] bg-white shadow-lg rounded-lg p-6">
                 <h5 className="py-2 font-medium text-neutra-700">{item.title}</h5>
                 <p className="py-2 text-neutra-600">{item.text}</p>
 
@@ -170,7 +170,7 @@ export default function CustomerReviews() {
 
       <div ref={refContact} className="flex flex-col justify-center items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mx-auto max-w-7xl pb-20 px-2">
-          <AnimationDiv duration="1s" inView={inViewContact} className="col-span-1">
+          <AnimationDiv duration="duration-[1s]" inView={inViewContact} className="col-span-1">
             <h2 className="font-medium text-neutra-700 mb-4">
               Quer conhecer mais
             </h2>
@@ -183,7 +183,7 @@ export default function CustomerReviews() {
             <Button>Entrar em contato</Button>
           </AnimationDiv>
 
-          <AnimationDiv duration="1.2s" inView={inViewContact} className="flex justify-end col-span-1">
+          <AnimationDiv duration="duration-[1.2s]" inView={inViewContact} className="flex justify-end col-span-1">
             <Image
               className="w-full h-auto"
               priority
