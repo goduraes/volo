@@ -4,29 +4,29 @@ const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
       },
       fontFamily: {
-        "roboto": "var(--roboto-font)",
-        "montserrat": "var(--montserrat-font)",
+        roboto: 'var(--roboto-font)',
+        montserrat: 'var(--montserrat-font)'
       },
       colors: {
         black: '#000',
         white: '#fff',
         footer: '#2D374B',
         services: 'rgba(155, 203, 151, 0.25)',
-        primaria:{
+        primaria: {
           1: '#1CFF77',
           2: '#00E75C',
           3: '#05CB54',
-          4: '#E6F1E6',
+          4: '#E6F1E6'
         },
         neutra: {
           50: '#F8F9FA',
@@ -38,7 +38,7 @@ const config: Config = {
           600: '#868E96',
           700: '#495057',
           800: '#343A40',
-          900: '#212529',
+          900: '#212529'
         },
         semantica: {
           1: '#3F9C35',
@@ -49,11 +49,11 @@ const config: Config = {
           6: '#FC8674',
           7: '#EAAB00',
           8: '#FFBB01',
-          9: '#FBCF57',
-        },
+          9: '#FBCF57'
+        }
       }
-    },
+    }
   },
-  plugins: [],
+  plugins: []
 }
 export default config

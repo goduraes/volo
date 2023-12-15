@@ -13,6 +13,7 @@
     "@djpfs/react-vlibras": "^2.0.2",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18.2.0",
