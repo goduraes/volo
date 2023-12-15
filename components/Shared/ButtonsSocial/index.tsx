@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image from 'next/image'
 
-import Facebook from "@/public/social-icons/facebook.svg";
-import Instagram from "@/public/social-icons/instagram.svg";
-import Tumblr from "@/public/social-icons/tumblr.svg";
+import Facebook from '@/public/social-icons/facebook.svg'
+import Instagram from '@/public/social-icons/instagram.svg'
+import Tumblr from '@/public/social-icons/tumblr.svg'
 
 export default function ButtonsSocial() {
   return (
@@ -56,5 +56,5 @@ export default function ButtonsSocial() {
         </a>
       </li>
     </ul>
-  );
+  )
 }

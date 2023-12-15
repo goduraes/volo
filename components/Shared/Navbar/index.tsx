@@ -1,34 +1,38 @@
-"use client";
-import { Fragment, useContext, useEffect, useState } from "react";
-import { Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import Button from "../Button";
-import Image from "next/image";
+'use client'
+import { Fragment, useContext, useEffect, useState } from 'react'
+import { Transition } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import Button from '../Button'
+import Image from 'next/image'
 import Link from 'next/link'
-import Logo from "@/public/logo-volo.svg";
-import { NavigationType, navigation } from './navigation';
-import VLibras from '@djpfs/react-vlibras';
-import { MenuContext } from '@/contexts/MenuContext';
+import Logo from '@/public/logo-volo.svg'
+import { NavigationType, navigation } from './navigation'
+import VLibras from '@djpfs/react-vlibras'
+import { MenuContext } from '@/contexts/MenuContext'
 
 function classNames(...classes: any) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ')
 }
 
 export default function Navbar() {
-  let [isShowing, setIsShowing] = useState(false);
-  const [scroll, setScroll] = useState(false);
-  const { menuActive } = useContext(MenuContext);
+  let [isShowing, setIsShowing] = useState(false)
+  const [scroll, setScroll] = useState(false)
+  const { menuActive } = useContext(MenuContext)
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 50);
-    });
-  }, []);
+    window.addEventListener('scroll', () => {
+      setScroll(window.scrollY > 50)
+    })
+  }, [])
 
   return (
     <>
       <VLibras forceOnload={true} />
-      <nav className={`bg-neutra-50 fixed w-full z-20 shadow-lg ${!scroll && 'md:shadow-none'}`}>
+      <nav
+        className={`bg-neutra-50 fixed w-full z-20 shadow-lg ${
+          !scroll && 'md:shadow-none'
+        }`}
+      >
         <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-center md:justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
@@ -46,7 +50,7 @@ export default function Navbar() {
               </button>
             </div>
             <div className="flex items-center justify-center md:items-stretch md:justify-start">
-              <Link  href="/" className="flex flex-shrink-0 items-center">
+              <Link href="/" className="flex flex-shrink-0 items-center">
                 <Image
                   className="h-8 w-auto"
                   priority
@@ -64,9 +68,9 @@ export default function Navbar() {
                       href={item.href}
                       className={classNames(
                         item.name === menuActive
-                          ? "border-b-2 border-semantica-1 text-semantica-1"
-                          : "text-neutra-700 hover:text-neutra-900",
-                        "py-0.5 font-roboto font-normal leading-5"
+                          ? 'border-b-2 border-semantica-1 text-semantica-1'
+                          : 'text-neutra-700 hover:text-neutra-900',
+                        'py-0.5 font-roboto font-normal leading-5'
                       )}
                     >
                       {item.name}
@@ -84,12 +88,12 @@ export default function Navbar() {
         <Transition
           as={Fragment}
           show={isShowing}
-          enter='transform ease-out duration-300 transition'
-          enterFrom='translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2'
-          enterTo='translate-y-0 opacity-100 sm:translate-x-0'
-          leave='transition ease-in duration-100'
-          leaveFrom='opacity-100'
-          leaveTo='opacity-0'
+          enter="transform ease-out duration-300 transition"
+          enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+          enterTo="translate-y-0 opacity-100 sm:translate-x-0"
+          leave="transition ease-in duration-100"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
         >
           <div className="md:hidden h-[calc(100vh_-_64px)] relative">
             <div className="space-y-1 px-2 pb-3 pt-2">
@@ -100,9 +104,9 @@ export default function Navbar() {
                   href={item.href}
                   className={classNames(
                     item.name === menuActive
-                      ? "border-b-2 border-semantica-1 text-semantica-1"
-                      : "text-neutra-700 hover:text-neutra-900",
-                    "block px-3 py-2 font-roboto font-normal leading-10"
+                      ? 'border-b-2 border-semantica-1 text-semantica-1'
+                      : 'text-neutra-700 hover:text-neutra-900',
+                    'block px-3 py-2 font-roboto font-normal leading-10'
                   )}
                 >
                   {item.name}
@@ -110,11 +114,13 @@ export default function Navbar() {
               ))}
             </div>
             <div className="absolute bottom-0 space-y-1 px-2 pb-3 pt-2 w-full">
-              <Button aria-label="Contato" className="w-full">Contato</Button>
+              <Button aria-label="Contato" className="w-full">
+                Contato
+              </Button>
             </div>
           </div>
         </Transition>
       </nav>
     </>
-  );
+  )
 }

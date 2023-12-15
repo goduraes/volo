@@ -1,27 +1,30 @@
-"use client"
-import { createContext, useEffect, useState } from "react";
+'use client'
+import { createContext, useEffect, useState } from 'react'
 
 interface MenuContextData {
-  menuActive: string;
+  menuActive: string
   setMenuActive: Function
 }
 
-export const MenuContext = createContext({ menuActive: "", setMenuActive: () => {} } as MenuContextData);
+export const MenuContext = createContext({
+  menuActive: '',
+  setMenuActive: () => {}
+} as MenuContextData)
 
 export function MenuProvider({ children, ...rest }: any) {
-  const [currentMenu, setCurrentMenu] = useState("Home");
+  const [currentMenu, setCurrentMenu] = useState('Home')
 
   useEffect(() => {
-    window.scrollTo(0,0);
-  }, []);
+    window.scrollTo(0, 0)
+  }, [])
 
   const setMenuActive = (menu: string) => {
-    setCurrentMenu(menu);
+    setCurrentMenu(menu)
   }
 
   return (
     <MenuContext.Provider value={{ menuActive: currentMenu, setMenuActive }}>
       {children}
     </MenuContext.Provider>
-  );
+  )
 }
