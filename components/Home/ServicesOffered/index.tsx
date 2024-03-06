@@ -17,32 +17,32 @@ export default function ServicesOffered() {
   const cards: CardsType[] = [
     {
       icone: Suporte,
-      title: 'Suporte',
-      text: 'Suporte confiável, economia de custos e tranquilidade para o seu negócio. Deixe-nos cuidar da tecnologia para você!',
+      title: 'Desenvolvimento web',
+      text: 'Essas aplicações podem ser desde sites institucionais até plataformas complexas que integram diversos sistemas e funcionalidades.',
       duration: 'duration-[1.2s]'
     },
     {
       icone: Outsourcing,
-      title: 'Outsourcing de TI',
-      text: 'Suporte confiável, economia de custos e tranquilidade para o seu negócio. Deixe-nos cuidar da tecnologia para você!',
+      title: 'Desenvolvimento mobile',
+      text: 'Criação de aplicativos mobile para Android e iOS sob demanda, rápidos, intuitivos e com foco na experiência do usuário.',
       duration: 'duration-[1.4s]'
     },
     {
       icone: Suporte,
-      title: 'Suporte',
-      text: 'Suporte confiável, economia de custos e tranquilidade para o seu negócio. Deixe-nos cuidar da tecnologia para você!',
+      title: 'Desenvolvimento desktop',
+      text: 'Criação de aplicações desktop sob demanda, fluidas e intuitivas, que performam bem nas principais plataformas desktop, como Windows, Mac e Linux.',
       duration: 'duration-[1.6s]'
     },
     {
-      icone: Outsourcing,
-      title: 'Outsourcing de TI',
+      icone: Suporte,
+      title: 'Cloud computing',
       text: 'Suporte confiável, economia de custos e tranquilidade para o seu negócio. Deixe-nos cuidar da tecnologia para você!',
       duration: 'duration-[1.8s]'
     },
     {
-      icone: Suporte,
-      title: 'Outsourcing de TI',
-      text: 'Suporte confiável, economia de custos e tranquilidade para o seu negócio. Deixe-nos cuidar da tecnologia para você!',
+      icone: Outsourcing,
+      title: 'Desenvolvimento full-stack',
+      text: 'Implementação tanto do design de interface quanto da lógica e dos dados do produto digital em código, utilizando as linguagens e ferramentas adequadas para cada camada.',
       duration: 'duration-[2s]'
     }
   ]

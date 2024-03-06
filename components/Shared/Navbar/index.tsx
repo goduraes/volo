@@ -9,12 +9,14 @@ import Logo from '@/public/logo-volo.svg'
 import { NavigationType, navigation } from './navigation'
 import VLibras from '@djpfs/react-vlibras'
 import { MenuContext } from '@/contexts/MenuContext'
+import { useRouter } from 'next/navigation'
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Navbar() {
+  const router = useRouter()
   let [isShowing, setIsShowing] = useState(false)
   const [scroll, setScroll] = useState(false)
   const { menuActive } = useContext(MenuContext)
@@ -80,7 +82,12 @@ export default function Navbar() {
               </div>
             </div>
             <div className="hidden md:flex absolute inset-y-0 right-0 items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
-              <Button aria-label="Contato">Contato</Button>
+              <Button
+                onClick={() => router.push('/contato')}
+                aria-label="Contato"
+              >
+                Contato
+              </Button>
             </div>
           </div>
         </div>
@@ -113,8 +120,15 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
-            <div className="absolute bottom-0 space-y-1 px-2 pb-3 pt-2 w-full">
-              <Button aria-label="Contato" className="w-full">
+            <div className="absolute space-y-1 px-2 pb-3 pt-2 w-full">
+              <Button
+                onClick={() => {
+                  router.push('/contato')
+                  setIsShowing(false)
+                }}
+                aria-label="Contato"
+                className="w-full"
+              >
                 Contato
               </Button>
             </div>

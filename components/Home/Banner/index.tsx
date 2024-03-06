@@ -5,6 +5,7 @@ import Image from 'next/image'
 import AnimationDiv from '@/components/Shared/AnimationDiv'
 import HomeBanner from '@/public/home-banner.jpg'
 import Avatar from '@/public/avatar.jpg'
+import { useRouter } from 'next/navigation'
 
 import Microsoft from '@/public/companies/microsoft.svg'
 import Microsoft2 from '@/public/companies/microsoft-2.svg'
@@ -19,6 +20,7 @@ export interface CompaniesType {
 }
 
 export default function Banner() {
+  const router = useRouter()
   const { ref, inView } = useInView({ threshold: 0.3 })
   const [refCompanyList, inViewCompaniesList] = useInView({ threshold: 0.5 })
 
@@ -77,10 +79,17 @@ export default function Banner() {
           </p>
 
           <div className="btns flex gap-5">
-            <Button aria-label="Solicitar orçamento">
+            <Button
+              onClick={() => router.push('/contato')}
+              aria-label="Solicitar orçamento"
+            >
               Solicitar orçamento
             </Button>
-            <Button aria-label="Saiba mais" secondary>
+            <Button
+              onClick={() => router.push('/#services')}
+              aria-label="Saiba mais"
+              secondary
+            >
               Saiba mais
             </Button>
           </div>

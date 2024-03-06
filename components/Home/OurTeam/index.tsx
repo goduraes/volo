@@ -6,6 +6,7 @@ import AnimationDiv from '@/components//Shared/AnimationDiv'
 import OurTeamImg from '@/public/our-team/our-team.jpg'
 import IconCheck from '@/public/our-team/check.svg'
 import { SetStateAction, useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 export interface NumbersTeamType {
   label: string
@@ -17,6 +18,7 @@ export interface NumbersTeamType {
 }
 
 export default function OurTeam() {
+  const router = useRouter()
   const [refAboutTeam, inViewAboutTeam] = useInView({ threshold: 0.3 })
   const [refTeamNumbers, inViewTeamNumbers] = useInView({ threshold: 0.5 })
 
@@ -39,9 +41,9 @@ export default function OurTeam() {
   }, [inViewAboutTeam, inViewTeamNumbers])
 
   const list: string[] = [
-    'Suporte confiá Suporte confiáff.',
-    'Suporte confiá Suporte confiável.',
-    'Suporte confiá Suporte.'
+    'Expertise especializada',
+    'Qualidade consistente',
+    'Suporte e manutenção contínuos'
   ]
 
   const numbersTeam: NumbersTeamType[] = [
@@ -132,7 +134,10 @@ export default function OurTeam() {
                 </li>
               ))}
             </ul>
-            <Button aria-label="Solicitar orçamento">
+            <Button
+              onClick={() => router.push('/contato')}
+              aria-label="Solicitar orçamento"
+            >
               Solicitar orçamento
             </Button>
           </AnimationDiv>

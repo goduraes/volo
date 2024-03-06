@@ -20,13 +20,13 @@ const config: Config = {
       colors: {
         black: '#000',
         white: '#fff',
-        footer: '#2D374B',
-        services: 'rgba(155, 203, 151, 0.25)',
+        footer: '#1F1F1F',
+        services: 'rgba(213, 221, 228, 1)',
         primaria: {
-          1: '#1CFF77',
-          2: '#00E75C',
-          3: '#05CB54',
-          4: '#E6F1E6'
+          1: '',
+          2: '',
+          3: '',
+          4: 'rgba(13, 59, 102, 0.1)'
         },
         neutra: {
           50: '#F8F9FA',
@@ -41,9 +41,9 @@ const config: Config = {
           900: '#212529'
         },
         semantica: {
-          1: '#3F9C35',
-          2: '#4FC343',
-          3: '#6FF462',
+          1: '#0D3B66',
+          2: '',
+          3: '',
           4: '#E6553F',
           5: '#FF6851',
           6: '#FC8674',

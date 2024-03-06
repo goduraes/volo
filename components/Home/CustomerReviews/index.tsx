@@ -7,7 +7,12 @@ import AnimationDiv from '@/components/Shared/AnimationDiv'
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline'
 import 'react-multi-carousel/lib/styles.css'
 import CustomerReviewsImg from '@/public/customer-reviews.jpg'
-import Avatar from '@/public/avatar.jpg'
+import { useRouter } from 'next/navigation'
+
+import Avatar1 from '@/public/avatar-customer-reviews/avatar1.jpg'
+import Avatar2 from '@/public/avatar-customer-reviews/avatar2.jpg'
+import Avatar3 from '@/public/avatar-customer-reviews/avatar3.jpg'
+import Avatar4 from '@/public/avatar-customer-reviews/avatar4.jpg'
 
 export interface ReviewCardType {
   title: string
@@ -18,58 +23,39 @@ export interface ReviewCardType {
 }
 
 export default function CustomerReviews() {
+  const router = useRouter()
   const [refContact, inViewContact] = useInView({ threshold: 0.3 })
   const [refCarousel, inViewCarousel] = useInView({ threshold: 0.3 })
 
   const reviewCards: ReviewCardType[] = [
     {
-      title: '“Incrível o trabalho, pretendo contrair mais vezes”',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec nisi tempus, tristique odio id, placerat metus.',
-      name: 'Carlos Eduardo',
+      title: '“A experiência com a equipe de da Volo foi incrível!”',
+      text: 'Eles foram extremamente profissionais e atenciosos em cada etapa do projeto. O software entregue superou nossas expectativas em termos de funcionalidade e desempenho.',
+      name: 'Ana Silva',
       date: '20/07/2023',
-      avatar: Avatar
+      avatar: Avatar1
     },
     {
-      title: '“Teste 1”',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec nisi tempus, tristique odio id, placerat metus.',
+      title: '“Estou muito satisfeito com o trabalho da equipe”',
+      text: 'Eles entenderam completamente nossas necessidades e foram capazes de traduzi-las. Além disso, sua abordagem ágil nos permitiu acompanhar o progresso do projeto de forma transparente.',
       name: 'Carlos Eduardo',
       date: '20/07/2023',
-      avatar: Avatar
+      avatar: Avatar2
     },
     {
-      title: '“Teste 2”',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec nisi tempus, tristique odio id, placerat metus.',
-      name: 'Carlos Eduardo',
+      title: '“A Volo não apenas entregou um software de alta qualidade”',
+      text: 'Sempre que enfrentamos problemas ou tivemos dúvidas, a equipe estava prontamente disponível para nos ajudar. Sua dedicação ao sucesso do cliente é verdadeiramente impressionante.',
+      name: 'Laura Costa',
       date: '20/07/2023',
-      avatar: Avatar
+      avatar: Avatar3
     },
     {
-      title: '“Teste 3”',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec nisi tempus, tristique odio id, placerat metus.',
-      name: 'Carlos Eduardo',
+      title:
+        '“Trabalhar com a Volo foi uma experiência excepcional desde o início”',
+      text: 'Sua equipe demonstrou uma compreensão profunda das complexidades do desenvolvimento de software e foi capaz de oferecer soluções inovadoras para nossos desafios.',
+      name: 'Pedro Oliveira',
       date: '20/07/2023',
-      avatar: Avatar
-    },
-    {
-      title: '“Teste 4”',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec nisi tempus, tristique odio id, placerat metus.',
-      name: 'Carlos Eduardo',
-      date: '20/07/2023',
-      avatar: Avatar
-    },
-    {
-      title: '“Teste 5”',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec nisi tempus, tristique odio id, placerat metus.',
-      name: 'Carlos Eduardo',
-      date: '20/07/2023',
-      avatar: Avatar
-    },
-    {
-      title: '“Teste 6”',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec nisi tempus, tristique odio id, placerat metus.',
-      name: 'Carlos Eduardo',
-      date: '20/07/2023',
-      avatar: Avatar
+      avatar: Avatar4
     }
   ]
 
@@ -81,7 +67,10 @@ export default function CustomerReviews() {
     const prevDisabled: boolean = actions.carouselState.currentSlide === 0
 
     return (
-      <div className="flex absolute top-0 right-0 gap-4">
+      <div
+        id="comentarios"
+        className="flex absolute top-0 right-0 gap-4 md:scroll-mt-16"
+      >
         <button
           type="button"
           disabled={prevDisabled}
@@ -201,7 +190,12 @@ export default function CustomerReviews() {
               ainda mais incrível. Não hesite em entrar em contato conosco, será
               um prazer atendê-lo(a)!
             </p>
-            <Button aria-label="Entrar em contato">Entrar em contato</Button>
+            <Button
+              onClick={() => router.push('/contato')}
+              aria-label="Entrar em contato"
+            >
+              Entrar em contato
+            </Button>
           </AnimationDiv>
 
           <AnimationDiv

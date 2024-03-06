@@ -5,10 +5,12 @@ import ButtonsSocial from '../ButtonsSocial'
 import Newsletter from '../Newsletter'
 import AnimationDiv from '@/components/Shared/AnimationDiv'
 import { navigation, NavigationType } from '../Navbar/navigation'
+import { useRouter } from 'next/navigation'
 
 import './style.css'
 
 export default function Footer() {
+  const router = useRouter()
   const { ref, inView } = useInView({ threshold: 0.5 })
 
   return (
@@ -43,7 +45,7 @@ export default function Footer() {
             {navigation.map((item: NavigationType) => (
               <li
                 key={item.name}
-                className="text-neutra-500 hover:text-semantica-1 font-roboto font-normal leading-7 py-1"
+                className="text-neutra-500 hover:opacity-80 font-roboto font-normal leading-7 py-1"
               >
                 <a href={item.href}> {item.name}</a>
               </li>
@@ -70,6 +72,7 @@ export default function Footer() {
           className="flex flex-col items-center md:items-center lg:items-start col-span-1 md:col-span-2 lg:col-span-1"
         >
           <Button
+            onClick={() => router.push('/contato')}
             aria-label="Solicitar orçamento"
             className="w-full lg:w-auto mb-6"
           >

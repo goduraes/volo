@@ -3,8 +3,7 @@ import { Player } from '@lottiefiles/react-lottie-player'
 import { useInView } from 'react-intersection-observer'
 import AnimationDiv from '@/components/Shared/AnimationDiv'
 import Error404 from '@/public/error-404.json'
-
-export default function NotFound() {
+export default function NotFoundCatchAll() {
   const { ref, inView } = useInView({ threshold: 0.3 })
 
   return (
