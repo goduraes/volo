@@ -67,10 +67,7 @@ export default function CustomerReviews() {
     const prevDisabled: boolean = actions.carouselState.currentSlide === 0
 
     return (
-      <div
-        id="comentarios"
-        className="flex absolute top-0 right-0 gap-4 md:scroll-mt-16"
-      >
+      <div className="flex absolute top-0 right-0 gap-4 md:scroll-mt-16">
         <button
           type="button"
           disabled={prevDisabled}
@@ -96,7 +93,10 @@ export default function CustomerReviews() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center bg-services">
+    <div
+      id="comentarios"
+      className="flex flex-col items-center justify-center md:scroll-mt-16 bg-services"
+    >
       <div ref={refCarousel} className="w-full mx-auto max-w-7xl py-20 px-2">
         <AnimationDiv duration="duration-[1s]" inView={inViewCarousel}>
           <h3 className="font-medium mb-4">

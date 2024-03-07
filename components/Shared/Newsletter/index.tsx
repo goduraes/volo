@@ -33,7 +33,7 @@ export default function Newsletter() {
           }
         })}
         placeholder="Digite seu e-mail..."
-        className="flex-1 text-neutra-600 focus:ring-transparent focus:outline-0 px-2"
+        className="flex-1 text-neutra-600 focus:ring-transparent focus:outline-none focus-visible:outline-none placeholder:text-neutra-600 px-2"
       />
       <Button type="submit" aria-label="Enviar" className="px-7">
         Enviar

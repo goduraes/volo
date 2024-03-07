@@ -1,4 +1,6 @@
 'use client'
+import { useContext, useEffect } from 'react'
+import { MenuContext } from '@/contexts/MenuContext'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Button from '@/components/Shared/Button'
 
@@ -16,6 +18,12 @@ type Inputs = {
 }
 
 export default function Contact() {
+  const { setMenuActive } = useContext(MenuContext)
+
+  useEffect(() => {
+    setMenuActive('')
+  }, [setMenuActive])
+
   const {
     register,
     handleSubmit,

@@ -12,7 +12,7 @@ export const MenuContext = createContext({
 } as MenuContextData)
 
 export function MenuProvider({ children, ...rest }: any) {
-  const [currentMenu, setCurrentMenu] = useState('Home')
+  const [currentMenu, setCurrentMenu] = useState('')
 
   useEffect(() => {
     window.scrollTo(0, 0)
