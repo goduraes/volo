@@ -3,6 +3,7 @@
 .contact-form .input input {
   height: 51px;
   padding: 10px 16px;
+  background: #fff;
 }
 
 .contact-form .input textarea::placeholder,
