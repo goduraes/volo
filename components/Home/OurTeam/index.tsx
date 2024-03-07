@@ -48,7 +48,7 @@ export default function OurTeam() {
 
   const numbersTeam: NumbersTeamType[] = [
     {
-      label: 'Anos de Mercados',
+      label: 'Anos de Mercado',
       number: 2,
       setState: (value: number) => setCounterYears(value),
       state: counterYears,
