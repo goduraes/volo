@@ -8,8 +8,7 @@ export async function POST(request: Request) {
   try {
     const data = await resend.emails.send({
       from: `${process.env.NEXT_PUBLIC_EMAIL_FROM}`,
-      to: `${process.env.NEXT_PUBLIC_EMAIL_TO}`,
-      cc: `${res.email}`,
+      to: [`${process.env.NEXT_PUBLIC_EMAIL_TO}`, `${res.email}`],
       subject: 'Contato Volo',
       react: EmailContato(res)
     })
