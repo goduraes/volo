@@ -8,8 +8,8 @@ export async function POST(request: Request) {
   try {
     const data = await resend.emails.send({
       from: `${process.env.NEXT_PUBLIC_EMAIL_FROM}`,
-      to: ['gduraes10@gmail.com'],
-      cc: [`${res.email}`],
+      to: `${process.env.NEXT_PUBLIC_EMAIL_TO}`,
+      cc: `${res.email}`,
       subject: 'Newsletter Volo',
       react: EmailNewsletter(res)
     })
