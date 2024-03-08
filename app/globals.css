@@ -7,6 +7,15 @@
   --background-start-rgb: 248, 249, 250, 1;
   --background-end-rgb: 248, 249, 250, 1;
   --color-red-error: rgba(255, 0, 0, 1)
+
+  --toastify-color-light: #fff;
+  --toastify-color-dark: #121212;
+  --toastify-color-info: #3498db;
+  --toastify-color-success: #0D3B66;
+  --toastify-color-warning: #f1c40f;
+  --toastify-color-error: #E6553F;
+  --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+  --toastify-color-progress-light: #212529;
 }
 
 @media (prefers-color-scheme: dark) {

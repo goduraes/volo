@@ -1,23 +1,26 @@
 'use client'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { MenuContext } from '@/contexts/MenuContext'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import Button from '@/components/Shared/Button'
 
 import './style.css'
+import { toast } from 'react-toastify'
+import Loading from '@/components/Shared/Loading'
 
 type Inputs = {
   setor: string
   nome: string
-  empresa: string
+  empresa?: string
   email: string
   telefone: string
-  orcamentoPrevio: string
+  orcamentoPrevio?: string
   mensagem: string
   comoNosEncontrou: string
 }
 
 export default function Contact() {
+  const [loading, setLoading] = useState<boolean>(false)
   const { setMenuActive } = useContext(MenuContext)
 
   useEffect(() => {
@@ -26,12 +29,25 @@ export default function Contact() {
 
   const {
     register,
+    reset,
     handleSubmit,
     watch,
     formState: { errors }
   } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data)
+    setLoading(true)
+    try {
+      fetch(`${process.env.NEXT_PUBLIC_BASE_URL_SERVER}/api/contato`, {
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      toast.success('E-mail de contato enviado com sucesso!')
+      reset()
+    } catch (error) {
+      toast.error('Ops, algo de errado aconteceu!')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -189,7 +205,7 @@ export default function Contact() {
         </div>
 
         <Button type="submit" className="w-full" aria-label="Enviar">
-          Enviar
+          {loading ? <Loading /> : 'Enviar'}
         </Button>
       </form>
     </div>

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "email-dev": "email dev",
     "dev": "next dev",
     "build": "next build",
     "build-start": "next build && next start",
@@ -14,12 +15,16 @@
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@react-email/components": "0.0.15",
     "next": "^14.1.2",
     "react": "^18",
     "react-dom": "^18.2.0",
+    "react-email": "2.1.0",
     "react-hook-form": "^7.51.0",
     "react-intersection-observer": "^9.5.3",
-    "react-multi-carousel": "^2.8.4"
+    "react-multi-carousel": "^2.8.4",
+    "react-toastify": "^10.0.4",
+    "resend": "^3.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.4",

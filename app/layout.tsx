@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Roboto, Montserrat } from 'next/font/google'
+import { ToastContainer } from 'react-toastify'
 import { MenuProvider } from '@/contexts/MenuContext'
 import Footer from '@/components/Shared/Footer'
 import Navbar from '@/components/Shared/Navbar'
@@ -35,6 +36,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </MenuProvider>
+        <ToastContainer bodyClassName="text-sm font-roboto" />
       </body>
     </html>
   )
